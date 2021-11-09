@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        {% block stylesheets %}
+
+        {% endblock %}
+
+
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" background-color: "black;">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="{{ path('home')}}">
+              <img style="height: 60px;" src="https://media.istockphoto.com/vectors/lynx-modern-logo-bobcat-design-emblem-template-for-a-sport-and-esport-vector-id1178100710?k=20&m=1178100710&s=170667a&w=0&h=hQJO0J4_q94nN0qSlcN5Bfatb6DB6AA4BGknQM1ozo0=" alt="logo" />
+            </a>
+            <font style="vertical-align: inherit;"></font>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Basculer la navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+      <li class="nav-item">
+          <a class="nav-link active" href="{{ path('about')}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">A propos
+            </font></font><span class="visually-hidden"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"></font></font></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{{ path('blog')}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cours
+            </font></font><span class="visually-hidden"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"></font></font></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('blog_create') }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Créer un cours </font></font></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('contact') }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Contact</font></font></a>
+         </li>
+         {% if not app.user %}
+         <li class="nav-item">
+          <a class="nav-link" href="{{ path('security_registrarion') }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Inscription </font></font></a>
+        </li>
+<li class="nav-item">
+          <a class="nav-link" href="{{ path('security_login') }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Connexion </font></font></a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('security_logout') }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Deconnexion </font></font></a>
+        </li>
+      {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class='container'>
+{% block body %}
+
+{% endblock %}
+</div>
+
+        {% block javascripts %}{% endblock %}
+    </body>
+  <footer class="bg-light text-center text-lg-start">
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2021 Copyright -
+    <a class="text-dark" href="https://mdbootstrap.com/">L'équipe Flex</a>
+  </div>
+  <!-- Copyright -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</footer>  
+</html>

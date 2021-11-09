@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+ {% block body %}
+  <center><h1 class="display-3">Connexion</h1>
+  <br/><img class="img-thumbnail" src="https://cdn.pixabay.com/photo/2016/06/15/16/16/man-1459246_960_720.png" alt="aboutUs" style="height: 400px;"><center/><br/>
+  <form action="{{ path('security_login') }}" method="post">
+   <div class="form-group">
+     <input placeholder="Adresse email.." required name="_username" type="text" class="form-control">
+    </div><br/>
+    <div class="form-group">
+        <input placeholder="Mot de passse.." required name="_password" type="text" class="form-control">
+       </div><br/>
+    <div class="form-group">
+        <button type="submit" class="btn btn-success">Connexion</button>
+    </div><br/>
+</form>
+ {% endblock %}
