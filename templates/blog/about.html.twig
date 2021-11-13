@@ -1,23 +1,39 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
-<h1 class="display-1"><center>À propos</center></h1><br/>
-
-<center><img class="img-thumbnail" src="https://cdn.pixabay.com/photo/2017/08/27/09/21/imprint-2685464_960_720.jpg" alt="aboutUs"></center> <br/>
-
-<h2 class="display-6">Qui sommes-nous ?</h2>
-  <center><img class="img-thumbnail" src="https://cdn.pixabay.com/photo/2017/03/31/17/39/avatar-2191918_960_720.png" alt="aboutUs" style="height: 400px;"><br/>
-  <br/><p>Nous sommes une équipe de 5 étudiants et développeurs. Actuellement, nous poursuivons nos études à l'Institut G4 en Ingénierie 1.</p></center>
-
-  <h2 class="display-6">Notre objectif ?</h2>
-  <center><img class="img-thumbnail" src="https://cdn.pixabay.com/photo/2017/10/24/21/25/arrow-2886223_960_720.jpg" alt="aboutUs" style="height: 400px;"><br/>
-  <br/><p>Notre objectif est de vous partager un maximum de nos compétences en informatique et en management à travers différentes fiches présentes sur le site. N'hésitez pas, vous aussi, à créer vos fiches pour nous partager votre savoir et ainsi aider un maximum de personnes !</p></center> 
-
-  <h2 class="display-6">L'équipe</h2>
-  <center><img class="img-thumbnail" src="https://cdn.pixabay.com/photo/2016/06/13/09/57/meeting-1453895_960_720.png" alt="aboutUs" style="height: 400px;"><br/>
-  <br/>
-  <center><p>Sammy MERAZGA, Soilihi M'MADI, Selwan SMATI, Nassim SOIDIKI, Sofiane TIGRINE - Institut G4</p></center>
+<div class="row align-items-center">
+  <h1 class="display-1"><center>À propos</center></h1><br/>
+  <center><img class="img-thumbnail" src="https://cdn.pixabay.com/photo/2017/08/27/09/21/imprint-2685464_960_720.jpg" alt="aboutUs"></center> <br/>
 </div>
+<div class="row p-5 align-items-center">
+  <div class="col-6">
+    <h2 class="display-6">Qui sommes-nous ?</h2>
+      <center><img class="img-thumbnail" src="https://cdn.pixabay.com/photo/2017/03/31/17/39/avatar-2191918_960_720.png" alt="aboutUs" style="height: 400px;"><br/>
+  </div>
+  <div class="col-6">
+    <br/><p>Nous sommes une équipe de 5 étudiants et développeurs. Actuellement, nous poursuivons nos études à l'Institut G4 en Ingénierie 1.</p></center>
+  </div>
+</div>
+<div class="row p-5 align-items-center">
+  <div class="col-6">
+    <br/><p>Notre objectif est de vous partager un maximum de nos compétences en informatique et en management à travers différentes fiches présentes sur le site. N'hésitez pas, vous aussi, à créer vos fiches pour nous partager votre savoir et ainsi aider un maximum de personnes !</p></center> 
+  </div>
+  <div class="col-6">
+    <h2 class="display-6">Notre objectif ?</h2>
+    <center><img class="img-thumbnail" src="https://cdn.pixabay.com/photo/2017/10/24/21/25/arrow-2886223_960_720.jpg" alt="aboutUs" style="height: 400px;"><br/>
+  </div>
+  
+</div>
+<div class="row p-5 align-items-center">
+<div class="col-6">
+  <h2 class="display-6">L'équipe</h2>
+    <center><img class="img-thumbnail" src="https://cdn.pixabay.com/photo/2016/06/13/09/57/meeting-1453895_960_720.png" alt="aboutUs" style="height: 400px;"><br/>
+    <br/>
+  </div>
+  <div class="col-6">
+    <center><p>Sammy MERAZGA, Soilihi M'MADI, Selwan SMATI, Nassim SOIDIKI, Sofiane TIGRINE - Institut G4</p></center>
+  </div>
+</div>
+
 
 {% endblock %}

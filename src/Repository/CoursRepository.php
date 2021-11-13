@@ -19,6 +19,21 @@ class CoursRepository extends ServiceEntityRepository
         parent::__construct($registry, Cours::class);
     }
 
+    /**
+     * @return void
+    */
+
+    public function search($mots)
+    {
+       $query = $this->createQueryBuilder('c');
+       if($mots != null)
+       {
+           $query->Where('MATCH_AGAINST(c.title,c.content)AGAINST
+           (:mots boolean)>0')
+               ->setParameter('mots',$mots);
+       }
+       return $query->getQuery()->getResult();
+    }
     
     public function findArticlesByName(string $query)
     {

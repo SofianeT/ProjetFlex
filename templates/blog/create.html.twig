@@ -4,31 +4,38 @@
 
 
 {% block body %}
+<section class"newCours">
+      <div class="row align-items-center p-5">
+        <div class="col-6">
+          <h1 class="display-3">
+            {% if editmode %}
+              Modification du cours
+            {% else %}
+              Créer un cours
+              <br/>
+              <img class="img-thumbnail" src="https://cdn.pixabay.com/photo/2017/12/22/08/01/school-supplies-3033204_960_720.jpg" alt="aboutUs" style="height: 400px;"><br/>
+            {% endif %}
+          </h1>
+        </div>
+        <div class="col-6 p-3">
+          {{form_start(formCours)}}
+          
+          {{form_row(formCours.title, {'attr':{'placeholder':"Titre du cours "}})}}
+          {{form_row(formCours.category, {'attr':{'placeholder':"Nom de la catégorie "}})}}
+          {{form_row(formCours.content, {'attr':{'placeholder':"Contenu du cours "}})}}
+          {{form_row(formCours.image, {'attr':{'placeholder':"Image du cours "}})}}
+          {{form_row(formCours.links1, {'attr':{'placeholder':"Lien vers une aide "}})}}
+           
 
-     <center><h1 class="display-3">
-     {% if editmode %}
-      Modification du cours
-      {% else %}
-     Créer un cours
-     <br/><img class="img-thumbnail" src="https://cdn.pixabay.com/photo/2017/12/22/08/01/school-supplies-3033204_960_720.jpg" alt="aboutUs" style="height: 400px;"><br/>
-      {% endif %}</h1></center>
-  
-     {{form_start(formCours)}}
-     
-       {{form_row(formCours.title, {'attr':{'placeholder':"Titre du cours "}})}}
-       {{form_row(formCours.category, {'attr':{'placeholder':"Nom de la catégorie "}})}}
-       {{form_row(formCours.content, {'attr':{'placeholder':"Contenu du cours "}})}}
-      {{form_row(formCours.image, {'attr':{'placeholder':"Image du cours "}})}}
-
-      <br/><button type="submit" class="btn btn-success">
-      {% if editmode %}
-      Enregister les modifications
-      {% else %}
-      Ajouter le cours 
-      {% endif %}
-      <br/></button>
-        
-
-        {{ form_end(formCours)  }}
+          <br/><button type="submit" class="btn btn-success">
+            {% if editmode %}
+             Enregister les modifications
+            {% else %}
+             Ajouter le cours 
+            {% endif %}
+            <br/></button>
+            {{ form_end(formCours)  }}
+        </div>
+</section>
      
 {% endblock %}

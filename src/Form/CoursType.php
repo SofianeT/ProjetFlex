@@ -21,6 +21,8 @@ class CoursType extends AbstractType
             ])
             ->add('content')
             ->add('image')
+            ->add('links1')
+           
         ;
     }
 

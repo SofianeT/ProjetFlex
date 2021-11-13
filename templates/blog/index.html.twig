@@ -3,24 +3,20 @@
 {% block title %}Cours{% endblock %}
 
 {% block body %}
-<input id="searchbar" onkeyup="search" type="text"
-        name="search" placeholder="">
-        <button type="submit" class="btn btn-success" >
-        Rechercher
-        </button>
+{{form(form)}}
 <section class="cours">
    {% for cours in cours %}
-    <cours>
+    <cours class="p-5">
+    <div class="border border-3 rounded p-1 col-6">        
         <h2>{{ cours.title }}</h2>
         <div class="metadata">Ecrit le {{cours.createAt | date("d/m/Y")}} a {{cours.createAt | date("H:i")}}</div>
-        <div class="content">
-            <img src="{{cours.image}}" alt="">
-            {{ cours.content | raw }}
-            <a href="{{ path('blog_show', {'id':cours.id})}}" class="btn btn-primary">Lire la suite</a>
-        </div>
+            <div class="content">
+                <img src="{{cours.image}}" style="max-width: 454px;" alt=""></br>
+                <a href="{{ path('blog_show', {'id':cours.id})}}" class="btn btn-primary">Lire le cours</a>
+            </div>   
+    </div>     
     </cours>
    {% endfor %} 
-
-
+   
 </section>
 {% endblock %}

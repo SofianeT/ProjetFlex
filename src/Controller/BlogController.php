@@ -6,6 +6,7 @@ use App\Entity\Comment;
 use App\Entity\Cours;
 use App\Form\CommentType;
 use App\Form\CoursType;
+use App\Form\SearchCoursesType;
 use App\Repository\CoursRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,12 +20,22 @@ class BlogController extends AbstractController
     /**
      * @Route("/blog", name="blog")
      */
-    public function index(CoursRepository $repo): Response
+    public function index(CoursRepository $repo , Request $request): Response
     {
         $cours = $repo->findAll();
+        $form = $this->createForm(SearchCoursesType::class);
+        $search = $form->handleRequest($request);
+
+      if($form->isSubmitted() && $form->isValid())
+      {
+          $cours = $repo->search($search->get('mots')->getData());
+      }
+
+
         return $this->render('blog/index.html.twig', [
             'controller_name' => 'BlogController',
-            'cours'=>$cours
+            'cours'=>$cours,
+            'form'=>$form->createView()
         ]);
     }
 

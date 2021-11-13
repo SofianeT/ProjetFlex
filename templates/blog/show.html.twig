@@ -1,43 +1,49 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<cours>
-        <h2>{{cours.title}}</h2>
-        <div class="metadata">Ecrit le {{cours.createAt | date("d/m/Y")}} à {{cours.createAt | date("H:i")}} dans la catégorie {{cours.category.title}} </div>
-        <div class="content">
-            <img src="{{cours.image}}" alt="">
-             {{ cours.content | raw }}
-        </div>
-      <a href="{{ path('blog_edit', {'id':cours.id},'edit')}}" class="btn btn-primary">Modifier le cours </a>
-    </cours>
-<section id="commentaire">
- <h1> {{ cours.comments | length }} Commmentaires : </h1>
-
- {% for comment in cours.comments  %}
-   <div class="comment">
-    <div class="row">
-      <div class="col-3">
-        {{comment.author}} (<small>{{ comment.createAt | date ('d/m/Y à H:i')}}</small>)
-      </div>
-        <div class="col">
-         {{comment.content | raw }}
+<div class="row">
+  <div class="cours border border-5">
+    <h2>{{cours.title}}</h2>
+    <div class="metadata">Ecrit le {{cours.createAt | date("d/m/Y")}} à {{cours.createAt | date("H:i")}} dans la catégorie {{cours.category.title}} </div>
+      <div class="content ">
+        <img src="{{cours.image}}" alt="">
+        <p> {{ cours.content | raw }} </p>  </br>
+        <a href="{{ cours.links1}}" >Cours appronfondi</a>  </br>                
       </div>
     </div>
+    <div class="justify-content-center p-2">
+      <a href="{{ path('blog_edit', {'id':cours.id},'edit')}}" class="btn btn-primary">Modifier le cours </a>  </br>
+    </div>  
+  </div>
+</div>
+<section id="commentaire">
+  <div class="row">
+    <div class="justify-content-center">
+      <h1> {{ cours.comments | length }} Commmentaires : </h1>
+      {% for comment in cours.comments  %}
+      <div class="comment">      
+          <div class="col-3">
+            {{comment.author}} (<small>{{ comment.createAt | date ('d/m/Y à H:i')}}</small>)
+          </div>
+          <div class="col">
+            {{comment.content | raw }}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+        {% if app.user %}
+        {{ form_start(commentForm) }}
+            {{form_row(commentForm.author, {'attr':{'placeholder':"Votre nom "}})}} <br/>
+            {{form_row(commentForm.content, {'attr':{'placeholder':"Votre commentaire "}})}} <br/>
 
-   </div>
- {% endfor %}
-   {% if app.user %}
-   {{ form_start(commentForm) }}
-      {{form_row(commentForm.author, {'attr':{'placeholder':"Votre nom "}})}} <br/>
-       {{form_row(commentForm.content, {'attr':{'placeholder':"Votre commentaire "}})}} <br/>
-
-     <button type="submit" class="btn btn-success">Commenter</button>
-    {{ form_end(commentForm) }}
-   {% else %}
-     <h2> Vous devez vous connectez pour laisser un commentaire </h2>
-     <a href="{{ path('security_login') }}" class="btn btn-primary">
-    Connexion </a>
-     {% endif %} 
-  
+          <button type="submit" class="btn btn-success">Commenter</button>
+          {{ form_end(commentForm) }}
+        {% else %}
+          <h2> Vous devez vous connectez pour laisser un commentaire </h2>
+          <a href="{{ path('security_login') }}" class="btn btn-primary m-auto">
+          Connexion </a>
+        {% endif %} 
+      </div>
+  </div>  
 </section>
 {% endblock %}

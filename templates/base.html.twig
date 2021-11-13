@@ -11,10 +11,10 @@
 
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" background-color: "black;">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top mb-5" >
           <div class="container-fluid">
             <a class="navbar-brand" href="{{ path('home')}}">
-              <img style="height: 60px;" src="https://media.istockphoto.com/vectors/lynx-modern-logo-bobcat-design-emblem-template-for-a-sport-and-esport-vector-id1178100710?k=20&m=1178100710&s=170667a&w=0&h=hQJO0J4_q94nN0qSlcN5Bfatb6DB6AA4BGknQM1ozo0=" alt="logo" />
+              <img style="height: 60px;" src="https://imagizer.imageshack.com/img924/1808/Lddzoy.png" alt="logo" />
             </a>
             <font style="vertical-align: inherit;"></font>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Basculer la navigation">
@@ -24,31 +24,31 @@
             <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav me-auto">
       <li class="nav-item">
-          <a class="nav-link active" href="{{ path('about')}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">A propos
-            </font></font><span class="visually-hidden"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"></font></font></span>
+          <a class="nav-link" href="{{ path('about')}}"><font style="vertical-align: inherit;">A propos
+            </font></span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="{{ path('blog')}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cours
-            </font></font><span class="visually-hidden"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"></font></font></span>
+          <a class="nav-link" href="{{ path('blog')}}"><font style="vertical-align: inherit;">Cours
+            </font></span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ path('blog_create') }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Créer un cours </font></font></a>
+          <a class="nav-link" href="{{ path('blog_create') }}"><font style="vertical-align: inherit;">Créer un cours </font></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ path('contact') }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Contact</font></font></a>
+          <a class="nav-link" href="{{ path('contact') }}"><font style="vertical-align: inherit;">Contact</font></a>
          </li>
          {% if not app.user %}
          <li class="nav-item">
-          <a class="nav-link" href="{{ path('security_registrarion') }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Inscription </font></font></a>
+          <a class="nav-link" href="{{ path('security_registrarion') }}"><font style="vertical-align: inherit;">Inscription </font></a>
         </li>
 <li class="nav-item">
-          <a class="nav-link" href="{{ path('security_login') }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Connexion </font></font></a>
+          <a class="nav-link" href="{{ path('security_login') }}"><font style="vertical-align: inherit;">Connexion </font></a>
         </li>
         {% else %}
         <li class="nav-item">
-          <a class="nav-link" href="{{ path('security_logout') }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Deconnexion </font></font></a>
+          <a class="nav-link" href="{{ path('security_logout') }}"><font style="vertical-align: inherit;">Deconnexion </font></a>
         </li>
       {% endif %}
       </ul>

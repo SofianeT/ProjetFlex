@@ -10,6 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=CoursRepository::class)
+ * @ORM\Table(name="cours", indexes={@ORM\Index(columns={"title","content"}, flags={"fulltext"})})
  */
 class Cours
 {
@@ -41,6 +42,18 @@ class Cours
     /**
      * @ORM\Column(type="datetime_immutable")
      */
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\Url()
+     *
+     */
+     private $links1;
+    
+    /**
+     * @ORM\Column(type="datetime_immutable")
+     */
+    
     private $createAt;
 
     /**
@@ -99,7 +112,20 @@ class Cours
 
         return $this;
     }
+     
+    public function getLinks1(): ?string
+    {
+        return $this->links1;
+    }
 
+    public function setLinks1(string $links1): self
+    {
+        $this->links1 = $links1;
+
+        return $this;
+    }
+   
+    
     public function getCreateAt(): ?\DateTimeImmutable
     {
         return $this->createAt;
